@@ -1,0 +1,21 @@
+#Reading the pdf properties/metadata in python
+#Try pdfminer:
+
+from pdfminer.pdfparser import PDFParser, PDFDocument    
+
+fp = open('diveintopython.pdf', 'rb')
+parser = PDFParser(fp)
+doc = PDFDocument()
+parser.set_document(doc)
+doc.set_parser(parser)
+doc.initialize()
+
+#print doc.info  # The "Info" metadata
+#Here's the output:
+'''
+>>> [{'CreationDate': 'D:20040520151901-0500',
+  'Creator': 'DocBook XSL Stylesheets V1.52.2',
+  'Keywords': 'Python, Dive Into Python, tutorial, object-oriented, programming, documentation, book, free',
+  'Producer': 'htmldoc 1.8.23 Copyright 1997-2002 Easy Software Products, All Rights Reserved.',
+  'Title': 'Dive Into Python'}]
+'''
