@@ -19,3 +19,13 @@ doc.initialize()
   'Producer': 'htmldoc 1.8.23 Copyright 1997-2002 Easy Software Products, All Rights Reserved.',
   'Title': 'Dive Into Python'}]
 '''
+
+
+
+# How do I write multiple lists to one file
+with open("file.txt","w") as f:
+    for (student,score,avg) in zip(students,scores,avgs):
+        f.write("{0},{1},{2}\n".format(student,score,avg))
+# If you don't want to use a for loop, you could look at csv.writer, but that's hardly more "streamlined" than what I've posted here.
+
+# answered Nov 12 at 4:54 by kevinsa5
